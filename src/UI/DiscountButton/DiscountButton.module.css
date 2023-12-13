@@ -1,0 +1,28 @@
+.button {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    margin: 10px;
+    padding: 16px, 32px, 16px, 32px;
+    width: 35vw;
+    height: 5vw;
+}
+.sended{
+    font-size: 20px;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    color: rgba(51, 153, 51, 1);
+    width: 35vw;
+    height: 5vw;
+}
+.button:hover{
+    transition: 0.2s;
+    background-color: rgba(40, 40, 40, 1);
+    color: white;
+}

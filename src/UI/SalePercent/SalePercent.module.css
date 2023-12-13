@@ -1,0 +1,17 @@
+.SalePercent {
+    padding: 4px, 8px, 4px, 8px ;
+    background-color: rgba(51, 153, 51, 1);
+    gap: 10px;
+    border-radius: 6px;
+    width: 63px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SalePercent>p {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+}

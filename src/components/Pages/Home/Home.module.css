@@ -1,0 +1,133 @@
+.homePageImage {
+    background-image: url('../../../media/HomepageImage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 600px;
+    margin: 0;
+    display: flex;
+}
+
+.imageContent {
+    color: white;
+    margin: 10px;
+}
+
+.categoryTextAndButton {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lineAndButton {
+    display: flex;
+    align-items: center;
+}
+
+.lineAndButton>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    color: rgba(139, 139, 139, 1);
+    border: 1px solid rgba(221, 221, 221, 1);
+
+    border-radius: 6px;
+    padding: 8px, 16px, 8px, 16px;
+    width: 142px;
+    height: 36px;
+}
+
+.lineAndButton>a:hover {
+    color: black;
+}
+
+.line {
+    height: 1px;
+    background-color: rgba(221, 221, 221, 1);
+}
+
+.discountForm {
+    margin: 10px;
+    height: fit-content;
+    border-radius: 12px;
+    padding: 32px, 32px, 0px, 32px;
+    gap: 24px;
+    background: linear-gradient(261.47deg, #0B710B 32.63%, #339933 98.96%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.discountForm>h2 {
+    margin: 15px 0 0 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form>p {
+    color: white;
+    margin-right: 10px;
+    font-size: 15px;
+    font-style: italic;
+    align-self: flex-end;
+    text-align: right;
+    text-decoration: underline;
+}
+
+.form>input {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    width: 35vw;
+    height: 5vw;
+    padding: 16px, 32px, 16px, 32px;
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.form>input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: white;
+}
+
+
+.hands {
+    width: 63vw;
+    height: 30vw;
+    background-image: url('../../../media/hands.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.homePage>h2 {
+    margin-left: 10px;
+}

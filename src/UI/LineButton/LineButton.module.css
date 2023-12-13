@@ -1,0 +1,83 @@
+
+
+.textandLineButton {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.lineAndButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.lineAndButton>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    color: rgba(139, 139, 139, 1);
+    border: 1px solid rgba(221, 221, 221, 1);
+
+    border-radius: 6px;
+    padding: 8px, 16px, 8px, 16px;
+    width: 142px;
+    height: 36px;
+}
+
+.lineAndButton>a:hover {
+    color: black;
+}
+
+.line {
+    height: 1px;
+    background-color: rgba(221, 221, 221, 1);
+}
+
+@media (width < 4000px) {
+    .line {
+        width: calc(var(--base-width) * 7vw);
+    }
+}
+
+@media (width < 2000px) {
+    .line {
+        width: calc(var(--base-width) * 6vw);
+    }
+}
+
+@media (width < 1340px) {
+    .line {
+        width: calc(var(--base-width) * 4vw);
+    }
+
+    .homePageImage {
+        height: 700px;
+    }
+}
+
+@media (width < 870px) {
+    .line {
+        width: calc(var(--base-width) * 3vw);
+    }
+}
+
+@media (width < 761px) {
+    .line {
+        width: calc(var(--base-width) * 1vw);
+    }
+
+}
+
+@media (width < 600px) {
+    .line {
+        width: 0;
+    }
+
+}

@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 128px;
+    margin: 0 10px 0px 10px;
+}
+
+.link {
+    margin: 10px;
+}
+.link:hover{
+    text-decoration: underline;
+}

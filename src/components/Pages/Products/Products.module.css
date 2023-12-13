@@ -1,0 +1,123 @@
+.productsListPage {
+    margin: 20px;
+}
+
+.productsList {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.productsList>a {
+    border: 1px solid rgba(221, 221, 221, 1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productsList>a>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    color: rgba(40, 40, 40, 1);
+}
+
+
+.img {
+    width: 100%;
+    height: 25vw;
+    border-radius: 12px 12px 0 0;
+}
+
+
+.productListItem {
+    position: relative;
+}
+
+.salePercentContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    margin: 20px;
+}
+
+.imgContainer {
+    position: relative;
+}
+
+.buttonContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+}
+
+.imgContainer:hover>.buttonContainer {
+    transition: 0.3s;
+    opacity: 100;
+}
+
+
+.prices {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.prices>h3 {
+    margin-right: 5px;
+    font-size: 40px;
+}
+
+.prices>p {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 20px;
+}
+
+
+
+@media (width < 4000px) {
+    .productsList {
+        grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
+}
+
+@media (width < 1290px) {
+    .productsList {
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+    }
+    .img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px 12px 0 0;
+    }
+}
+
+@media (width < 850px) {
+    .productsList {
+        grid-template-columns: repeat(1, minmax(300px, 1fr));
+    }
+   
+}
+

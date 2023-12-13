@@ -1,0 +1,21 @@
+.notFoundPage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.error {
+    background-image: url('../../../media/404.png');
+    width: 50vw;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.notFoundPage > button:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    transform: scale(1.2);
+}

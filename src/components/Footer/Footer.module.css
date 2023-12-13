@@ -1,0 +1,21 @@
+.footer {
+    margin: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card {
+    background-color: rgba(241, 243, 244, 1);
+    padding: 32px;
+    margin: 10px;
+    gap: 16px;
+    border-radius: 12px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+}
