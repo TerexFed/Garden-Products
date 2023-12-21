@@ -65,4 +65,24 @@
         flex-direction: column;
         margin: 10px;
     }
+
+    .img {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .textContent>h3 {
+        text-align: center;
+    }
+}
+
+@media (width < 470px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .productPrices {
+        justify-content: center;
+        width: auto;
+    }
 }

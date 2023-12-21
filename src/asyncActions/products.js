@@ -1,10 +1,5 @@
-import { useNavigate } from "react-router-dom"
 import { BASE_URL } from "../App"
 import { getAllProductsAction, getAllProductsSalesAction, getProductByIDAction } from "../store/productsReducer"
-
-
-
-
 
 
 export function fetchAllProducts() {

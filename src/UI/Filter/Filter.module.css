@@ -1,0 +1,73 @@
+.filter {
+  margin: 10px;
+  display: flex;
+}
+
+.filterOption>p {
+  color: rgba(40, 40, 40, 1);
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px 0;
+}
+
+.filterOption>form>input {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  height: 36px;
+  width: 40%;
+  margin: 5px 10px 5px 10px;
+  outline: none;
+}
+
+.filterOption>input[type='checkbox'] {
+  border-radius: 6px;
+  height: 36px;
+  width: 36px;
+  margin: 0 40px 0 10px;
+}
+
+.filterOption>select {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border-radius: 6px;
+  margin-left: 10px;
+  width: 200px;
+  height: 36px;
+  outline: none;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(221, 221, 221, 1);
+}
+
+.filterOption>select>option {
+  color: rgba(139, 139, 139, 1);
+}
+
+.filterOption>select>option:checked {
+  color: rgba(40, 40, 40, 1);
+  background-color: transparent;
+}
+
+@media (width < 870px) {
+  .filter {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filterOption {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .filterOption>form {
+    align-self: center;
+  }
+}

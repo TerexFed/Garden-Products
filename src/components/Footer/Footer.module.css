@@ -15,7 +15,22 @@
     border-radius: 12px;
 }
 
-.links{
+.links {
     display: flex;
     align-items: center;
+}
+
+
+@media (width < 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+
+}
+
+@media (width < 380px) {
+    .card>h3 {
+        font-size: 30px;
+    }
 }

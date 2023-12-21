@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import s from './Home.module.css'
 import { useForm } from 'react-hook-form'
 import DiscountButton from '../../../UI/DiscountButton/DiscountButton'
+import { BASE_URL } from '../../../App'
 
 export default function DiscountForm() {
 
@@ -18,9 +19,18 @@ export default function DiscountForm() {
         reset
     } = useForm({ mode: 'onSubmit' })
 
-    const onSubmit = () => {
+    const onSubmit = async (data) => {
         reset()
         changeInnerText('Request submitted')
+        let response = await fetch(`${BASE_URL}sale/send`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data })
+        })
+        const res = await response.json()
+        alert(`Dear ${data.Name} your ${res.message}`)
     }
 
     let inputName = {
@@ -34,7 +44,7 @@ export default function DiscountForm() {
             required: 'Телефон обязателен к заполнению',
             pattern: {
                 value: /^(\+7|8)\s?\(?(\d{3})\)?\s?\d{3}[- ]?\d{2}[- ]?\d{2}$/,
-                message: 'Телефон должен соответствовать +7(XXX)XXX-XXX'
+                message: 'Телефон должен соответствовать (+7|8)(XXX)XXX-XXX'
             }
         })
     }
@@ -61,7 +71,7 @@ export default function DiscountForm() {
                         {...inputName} >
                     </input>
 
-                    {errors.Name && <p>{errors.Name.message}</p>}
+                    {errors.Name && <p className={`${s.errortext}`}>{errors.Name.message}</p>}
                     <input
                         disabled={(discountButtonText === 'Request submitted' ? true : false)}
                         placeholder='Phone number'
@@ -76,7 +86,7 @@ export default function DiscountForm() {
                     </input>
                     {errors.Email && <p className={`${s.errortext}`}>{errors.Email.message}</p>}
 
-                    <DiscountButton errors={errors} discountButtonText={discountButtonText} />
+                    <DiscountButton discountButtonText={discountButtonText} />
                 </form>
             </div>
 

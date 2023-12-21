@@ -57,7 +57,7 @@
     margin: 10px;
     height: fit-content;
     border-radius: 12px;
-    padding: 32px, 32px, 0px, 32px;
+    padding: 32px 32px 0 32px;
     gap: 24px;
     background: linear-gradient(261.47deg, #0B710B 32.63%, #339933 98.96%);
     color: white;
@@ -74,7 +74,6 @@
 .content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
     width: 100%;
 }
@@ -86,13 +85,13 @@
     align-items: center;
 }
 
-.form>p {
+.errortext {
     color: white;
-    margin-right: 10px;
+    margin: 0 15px 0 0;
     font-size: 15px;
-    font-style: italic;
     align-self: flex-end;
     text-align: right;
+    transform: translate(0, -5px);
     text-decoration: underline;
 }
 
@@ -125,9 +124,42 @@
     background-image: url('../../../media/hands.png');
     background-size: contain;
     background-repeat: no-repeat;
-
 }
 
 .homePage>h2 {
     margin-left: 10px;
+}
+
+
+
+@media (width < 830px) {
+    .content {
+        flex-direction: column-reverse;
+    }
+
+    .form>input {
+        font-size: 15px;
+        width: 45vw;
+        height: 10vw;
+    }
+}
+
+@media (width < 460px) {
+    h1 {
+        font-size: 64px;
+    }
+
+    h2 {
+        font-size: 56px;
+    }
+}
+
+@media (width < 365px) {
+    h1 {
+        font-size: 56px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
 }

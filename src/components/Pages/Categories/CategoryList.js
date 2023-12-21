@@ -6,8 +6,9 @@ import CategoryItem from './CategoryItem';
 import { BASE_URL } from '../../../App';
 import { Link } from 'react-router-dom';
 
+
 export default function CategoryList({ displayCount }) {
-  const {categories_name, data} = useSelector((store) => store.categories);
+  const { data } = useSelector((store) => store.categories);
   const displayedItems = data.slice(0, displayCount);
   const dispatch = useDispatch();
 

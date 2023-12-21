@@ -1,17 +1,27 @@
-import React from 'react'
-import Logo from '../../media/logo.svg'
-import BasketIcon from '../../media/basket-empty.svg'
-import { Link } from 'react-router-dom'
-import s from './Header.module.css'
+import React, { useState } from 'react';
+import Logo from '../../media/logo.svg';
+import BasketIcon from '../../media/basket-empty.svg';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import s from './Header.module.css';
+
 
 export default function Header() {
+
+    const [isMenuOpen, setMenuOpen] = useState(false)
+    const basket = useSelector(store => store.basket)
+    const basketLength = basket.length
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen)
+    };
+
     return (
         <div className={`${s.header}`}>
-            <Link to={'/'}>
-                <img src={Logo} alt='Logo' width='70px' height='70px' />
-            </Link>
+            <img src={Logo} alt='Logo' width='70px' height='70px' />
 
-            <div>
+
+            <div className={`${s.links} ${isMenuOpen ? s.mobileMenu : ''}`}>
                 <Link to={'/'} className={`${s.link}`}>
                     Main Page
                 </Link>
@@ -25,9 +35,17 @@ export default function Header() {
                     All sales
                 </Link>
             </div>
+
+            <div className={s.burger} onClick={toggleMenu}>
+                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
+                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
+                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
+            </div>
+
             <Link to={'/basket'}>
-                <img src={BasketIcon} alt='BasketIcon' width='44px' height='48px' />
+                {basketLength > 0 && <p className={`${s.countBasket}`}>{basket.reduce((total, item) => total + item.count , 0)}</p>}
+                <img className={`${s.basketIcon}`} src={BasketIcon} alt='BasketIcon' width='44px' height='48px' />
             </Link>
         </div>
-    )
+    );
 }

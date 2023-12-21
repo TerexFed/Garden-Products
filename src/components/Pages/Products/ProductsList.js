@@ -5,10 +5,11 @@ import ProductListItem from './ProductsListItem'
 import s from './Products.module.css'
 import { Link, useLocation } from 'react-router-dom'
 import { BASE_URL } from '../../../App'
+import Filter from '../../../UI/Filter/Filter'
 
-export default function ProductsList({ type, displayCount }) {
+export default function ProductsList({ type, displayCount, salesRef }) {
 
-    const products = useSelector(store => store.products)
+    const products = useSelector(store => store.products).filter(el => el.isShowSale && el.isShowPrice)
 
     const dispatch = useDispatch()
     const location = useLocation()
@@ -36,17 +37,21 @@ export default function ProductsList({ type, displayCount }) {
 
 
     return (
-        <div className={`${s.productsList}`}>
-            {sortedProducts.map(el =>
-                <Link to={`/products/${el.id}`} key={el.id}>
-                    <ProductListItem
-                        title={el.title}
-                        image={`${`${BASE_URL + el.image}`}`}
-                        price={el.price}
-                        discontPrice={el.discont_price}
-                    />
-                </Link>
-            )}
-        </div>
+        <>
+            {type !== 'homesale' && <Filter />}
+            <div className={`${s.productsList}`} ref={salesRef}>
+                {sortedProducts.map(el =>
+                    <Link to={`/products/${el.id}`} key={el.id}>
+                        <ProductListItem
+                            id={el.id}
+                            title={el.title}
+                            image={`${`${BASE_URL + el.image}`}`}
+                            price={el.price}
+                            discontPrice={el.discont_price}
+                        />
+                    </Link>
+                )}
+            </div>
+        </>
     )
 }

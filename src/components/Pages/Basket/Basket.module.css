@@ -1,3 +1,295 @@
+.basketPage {
+    width: 100%;
+}
+
 .emptyBasket {
     margin: 10px;
+}
+
+.basket {
+    margin: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.basketList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.basketListItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid rgba(221, 221, 221, 1);
+    border-radius: 12px;
+    width: calc(60vw - 20px);
+}
+
+.basketListItem>img {
+    width: 20vw;
+    height: auto;
+    border-radius: 12px;
+}
+
+.basketListItem>img[alt='cross'] {
+    filter: invert(1);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    margin: 15px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.info>p {
+    color: rgba(40, 40, 40, 1);
+}
+
+.counterPrice {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+.prices {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.prices>p {
+    margin-left: 10px;
+    text-decoration: line-through;
+    color: #888;
+    font-size: 20px;
+}
+
+
+.orderForm {
+    margin: 10px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 32px;
+    gap: 32px;
+    background: rgba(241, 243, 244, 1);
+    color: rgba(40, 40, 40, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.orderForm>h2 {
+    margin: 15px 0 0 0;
+}
+
+.orderInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.orderInfo>h3,
+.orderInfo>h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.orderForm>h2 {
+    text-align: center;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form>p {
+    color: rgba(40, 40, 40, 1);
+    font-size: 15px;
+    margin: 0;
+    align-self: flex-end;
+    text-align: right;
+    text-decoration: underline;
+    width: 100%;
+}
+
+.form>input {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: rgba(40, 40, 40, 1);
+    width: 100%;
+    height: 5vw;
+    padding: 16px, 32px, 16px, 32px;
+    margin: 10px 0;
+    border: 1px solid rgba(221, 221, 221, 1);
+    border-radius: 6px;
+    background-color: white;
+    color: rgba(139, 139, 139, 1);
+}
+
+.form>button {
+    width: 100%;
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+    border-radius: 6px;
+}
+
+.form>input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(139, 139, 139, 1);
+}
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+    color: white;
+    background-color: rgba(51, 153, 51, 1);
+    display: flex;
+    align-items: baseline;
+    border-radius: 12px;
+}
+
+
+.modal>img {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.modal>.modalText>p {
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    display: none;
+}
+
+.overlayVisible {
+    display: block;
+}
+
+
+@media (width < 1340px) {
+    .basketListItem {
+        width: calc(100% - 15px);
+    }
+
+    .orderForm {
+        width: 90vw;
+    }
+
+    .counterPrice {
+        justify-content: start;
+    }
+}
+
+@media (max-width: 1005px) {
+
+    .basket {
+        flex-direction: column;
+    }
+
+    .basketList {
+        width: 100%;
+        align-items: center;
+    }
+
+    .basketListItem {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 90vw;
+    }
+
+    .orderForm {
+        align-self: center;
+        width: 80vw;
+    }
+
+    .basketListItem>img {
+        margin: 10px;
+        width: 40vw;
+    }
+
+    .prices {
+        margin-right: 10px;
+    }
+
+
+    .form>input {
+        height: 10vw;
+    }
+
+    .form>button {
+        height: 10vw;
+    }
+
+    .info {
+        align-items: center;
+    }
+}
+
+@media (width < 480px) {
+    .modal {
+        flex-direction: column-reverse;
+        align-items: center;
+        box-sizing: content-box;
+    }
+}
+
+@media (max-width: 430px) {
+    .basketListItem {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+    }
+
+    .basketListItem>img {
+        width: 50vw;
+    }
+
+    .counterPrice {
+        flex-direction: column;
+    }
+
+    .info>p {
+        text-align: center;
+    }
+
+    .modalText>h3 {
+        font-size: 25px;
+    }
+
+    .modalText>p {
+        font-size: 15px;
+    }
 }

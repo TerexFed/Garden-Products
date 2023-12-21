@@ -1,5 +1,3 @@
-
-
 .textandLineButton {
     display: flex;
     justify-content: space-between;
@@ -72,7 +70,6 @@
     .line {
         width: calc(var(--base-width) * 1vw);
     }
-
 }
 
 @media (width < 600px) {
@@ -80,4 +77,13 @@
         width: 0;
     }
 
+}
+@media (width < 550px) {
+    .line {
+        width: 0;
+    }
+    .textandLineButton{
+        flex-direction: column;
+        align-items: self-start;
+    }
 }
