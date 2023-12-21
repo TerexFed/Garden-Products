@@ -1,68 +1,53 @@
-let defaultData = []
+const defaultData = JSON.parse(localStorage.getItem('basket'))?.Basket || [];
 
+const saveBasket = (basket) => {
+    localStorage.setItem('basket', JSON.stringify({ Basket: basket }));
+};
 
-const saveBasket = Basket => {
-    localStorage.setItem('basket', JSON.stringify({
-        Basket
-    }))
-}
+const ADDTOCARTNEWITEM = 'ADDTOCARTNEWITEM';
+const CHANGECOUNT = 'CHANGECOUNT';
+const DELETEFROMBASKET = 'DELETEFROMBASKET';
+const RESETBASKET = 'RESETBASKET';
 
-const isBasket = JSON.parse(localStorage.getItem('basket')).Basket
-
-
-if (isBasket?.length > 0) {
-    defaultData = isBasket
-}
-
-const ADDTOCARTNEWITEM = 'ADDTOCARTNEWITEM'
-const CHANGECOUNT = 'CHANGECOUNT'
-const DELETEFROMBASKET = 'DELETEFROMBASKET'
-const RESETBASKET = 'RESETBASKET'
-
-function changeCountItem(arr, id, count) {
-    return arr.map(el => {
-        if (el.id === id) {
-            el.count += count
-        }
-        return el
-    })
-}
+const changeCountItem = (arr, id, count) => {
+    return arr.map((el) => (el.id === id ? { ...el, count: el.count + count } : el));
+};
 
 export const basketReducer = (state = defaultData, action) => {
     switch (action.type) {
-
         case ADDTOCARTNEWITEM:
-            let { id, title, price, discount_price, image, count } = action.payload
+            const { id, title, price, discount_price, image, count } = action.payload;
 
-            if (state.find(el => el.id === id)) {
-                return changeCountItem(state, id, count)
-            }
-            else {
-                let newItem = {
+            if (state.find((el) => el.id === id)) {
+                return changeCountItem(state, id, count);
+            } else {
+                const newItem = {
                     id,
                     title,
                     price,
                     discount_price,
                     image,
-                    count
-                }
-                saveBasket([...state, newItem])
-                return [...state, newItem]
+                    count,
+                };
+                const updatedBasket = [...state, newItem];
+                saveBasket(updatedBasket);
+                return updatedBasket;
             }
+
         case CHANGECOUNT:
-            let NewBasket = changeCountItem(state, action.payload.id, action.payload.count)
-            saveBasket(NewBasket)
-            return NewBasket
+            const newBasket = changeCountItem(state, action.payload.id, action.payload.count);
+            saveBasket(newBasket);
+            return newBasket;
 
         case DELETEFROMBASKET:
-            saveBasket(state.filter(el => el.id !== action.payload))
-            return state.filter(el => el.id !== action.payload)
+            const filteredBasket = state.filter((el) => el.id !== action.payload);
+            saveBasket(filteredBasket);
+            return filteredBasket;
 
         case RESETBASKET:
-            const clearedState = []
-            saveBasket(clearedState)
-            return clearedState
-
+            const clearedState = [];
+            saveBasket(clearedState);
+            return clearedState;
 
         default:
             return state;
